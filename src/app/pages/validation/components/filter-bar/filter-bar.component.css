@@ -1,0 +1,43 @@
+.container {
+  background-color: #ffffff;
+  max-height: 64px;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px;
+}
+
+.results {
+  border-left: solid 1px #d6d7da;
+  display: flex;
+  padding: 0 10px;
+}
+
+.validated,
+.loaded {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  color: #706f6f;
+}
+
+.validated-number,
+.loaded-number {
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.validated-number {
+  color: #14c145;
+  border: 2px solid rgba(20, 193, 69, 0.28);
+  margin-right: 24px;
+}
+
+.loaded-number {
+  color: #f5821f;
+  border: 2px solid #eedcba;
+}
