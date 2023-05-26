@@ -3,6 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTableModule } from '@angular/material/table';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -15,6 +24,13 @@ import { TransitListComponent } from './pages/validation/components/transit-list
 
 import { ImageGalleryComponent } from './components/image-gallery/image-gallery.component';
 import { ButtonComponent } from './components/button/button.component';
+import { SelectComponent } from './components/form/select/select.component';
+import { DatetimepickerComponent } from './components/form/datetimepicker/datetimepicker.component';
+import { LabelComponent } from './components/form/label/label.component';
+import { InputComponent } from './components/form/input/input.component';
+import { CheckboxComponent } from './components/form/checkbox/checkbox.component';
+import { ChipComponent } from './components/chip/chip.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +41,27 @@ import { ButtonComponent } from './components/button/button.component';
     ActionsComponent,
     TransitListComponent,
     ButtonComponent,
+    SelectComponent,
+    DatetimepickerComponent,
+    LabelComponent,
+    InputComponent,
+    CheckboxComponent,
+    ChipComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    NgxMatSelectSearchModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

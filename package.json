@@ -23,6 +23,7 @@
     "@microsoft/signalr": "^7.0.5",
     "@types/signalr": "^2.4.0",
     "ng-keyboard-shortcuts": "^13.0.8",
+    "ngx-mat-select-search": "^7.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

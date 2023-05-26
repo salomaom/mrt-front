@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-actions',
+  selector: 'mrt-actions',
   templateUrl: './actions.component.html',
   styleUrls: ['./actions.component.css']
 })

@@ -1,6 +1,44 @@
 <div class="container">
   <div class="filters">
-    <app-button text="Filtro Avançado" icon="expand_more" />
+    <div class="filters-list">
+      <mrt-button
+        class="filters-advanced-button"
+        (click)="openFilters()"
+        text="Filtro Avançado"
+        icon="expand_more"
+      />
+      <mrt-chip [items]="['Operador', 'Praça', 'Categoria']" />
+    </div>
+    <div *ngIf="isFiltersOpen" class="filters-modal">
+      <div class="filters">
+        <mrt-input type="text" label="Operador" />
+        <mrt-input type="number" label="Itens por consulta" />
+        <mrt-input type="number" label="Itens por página [Talvez remova]" />
+        <mrt-select label="Concessionária" [options]="['A', 'B']" />
+        <mrt-select label="Praça" [options]="['A', 'B']" [multiple]="true" />
+        <mrt-select label="Sentido" [options]="['A', 'B']" />
+        <mrt-select label="Via" [options]="['A', 'B']" />
+        <mrt-select label="Modo via" [options]="['A', 'B']" />
+        <mrt-select label="Tipo de anomalia" [options]="['A', 'B']" />
+        <mrt-select label="Categoria" [options]="['A', 'B']" />
+        <mrt-select label="Emissor" [options]="['A', 'B']" />
+        <mrt-datetimepicker label="Data/Hora de" />
+        <mrt-datetimepicker label="Data/Hora até" />
+        <mrt-select label="Tipo de pagamento" [options]="['A', 'B']" />
+      </div>
+      <div class="filter-buttons">
+        <mrt-button
+          class="filter-button"
+          (click)="openFilters()"
+          text="Cancelar"
+        />
+        <mrt-button
+          class="filter-button"
+          (click)="openFilters()"
+          text="Aplicar"
+        />
+      </div>
+    </div>
   </div>
   <div class="results">
     <div class="validated">
@@ -13,3 +51,4 @@
     </div>
   </div>
 </div>
+<div *ngIf="isFiltersOpen" class="overlay" (click)="openFilters()"></div>

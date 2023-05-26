@@ -1,0 +1,20 @@
+<div class="select-container">
+  <mrt-label>{{ label }}</mrt-label>
+  <mat-form-field>
+    <mat-icon matSuffix>expand_more</mat-icon>
+    <mat-select class="custom-select" [multiple]="multiple">
+      <!-- Remove comment to have a searchable select. It needs some implementation to work. -->
+      <!-- <mat-option>
+        <ngx-mat-select-search
+          [formControl]="control"
+          placeholderLabel="Buscar"
+          [showToggleAllCheckbox]="true"
+          (keyUp)="filterOptions()"
+        ></ngx-mat-select-search>
+      </mat-option> -->
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

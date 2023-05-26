@@ -1,0 +1,12 @@
+<mat-chip-listbox class="container">
+  <mat-chip-option [selectable]="false" *ngFor="let item of items"
+    >{{ item }}
+    <button
+      matChipRemove
+      [attr.aria-label]="'remove ' + item"
+      (click)="remove(item)"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-chip-option>
+</mat-chip-listbox>

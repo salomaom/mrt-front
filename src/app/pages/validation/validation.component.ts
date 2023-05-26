@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-validation',
+  selector: 'mrt-validation',
   templateUrl: './validation.component.html',
   styleUrls: ['./validation.component.css']
 })

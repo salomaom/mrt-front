@@ -1,0 +1,8 @@
+.container {
+  display: inline-flex;
+  margin-right: 16px;
+}
+
+::ng-deep .mat-checkbox.mat-accent .mat-checkbox-inner-container {
+  margin: 20px 8px auto 0;
+}

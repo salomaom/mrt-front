@@ -1,3 +1,18 @@
+# TO DO
+
+[ ] Escrever tests
+
+# Observações
+
+## Libs
+### Mensagem importante da lib **`ngx-mat-select-search:`**
+
+```
+Important Note: This project is meant as a temporary implementation of https://github.com/angular/material2/issues/5697. The goal is to have an implementation in the official Angular Material repository, once https://github.com/angular/material2/pull/7835 is merged.
+```
+___
+# Angular CLI Generated information
+
 # MrtFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
