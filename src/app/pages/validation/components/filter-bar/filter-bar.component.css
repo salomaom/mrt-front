@@ -1,23 +1,27 @@
-.container {
+.accordion-header {
   background-color: #ffffff;
-  max-height: 64px;
-  padding: 16px;
+  padding: 6px;
   border-radius: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 8px;
 }
 
-.filters-list {
+.accordion-content {
+  border-radius: 16px;
+  background-color: #ffffff;
+  margin: 8px;
+  padding: 8px;
+}
+
+.accordion-header {
   display: flex;
   align-items: center;
 }
 
-.results {
+.accordion-header-results {
   border-left: solid 1px #d6d7da;
   display: flex;
   padding: 0 10px;
+  margin-left: auto;
 }
 
 .validated,
@@ -47,33 +51,52 @@
   border: 2px solid #eedcba;
 }
 
-.filters-modal {
-  position: absolute;
-  background-color: #ffffff;
-  width: 90%;
-  max-width: 1024px;
-  border-radius: 4px;
-  margin-left: 8px;
-  padding: 16px;
-  z-index: 100;
-}
-
-.filter {
+.accordion-content-filter-buttons {
   display: flex;
-  flex-wrap: wrap;
+  margin: 8px;
 }
 
-.overlay {
-  position: absolute;
-  width: 100%;
+.accordion-content-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 8px;
+}
+
+.accordion-content-header-title {
+  font-weight: 500;
+  color: var(--neutral-darkest);
+}
+
+.accordion-content-header-clean {
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+  color: var(--feedback-danger);
+  font-size: 14px;
+}
+
+.accordion-content-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-content-footer-more {
+  margin: 8px 16px;
+  background-color: transparent;
+  border: none;
   height: 100%;
-  background-color: #00000088;
-  top: 0;
-  left: 0;
-  z-index: 99;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-medium);
 }
 
-.filter-buttons {
-  display: flex;
-  justify-content: flex-end;
+.top-row {
+  display: grid;
+  grid-template-columns: 250px 250px auto 20% 20%;
+}
+
+.bottom-row {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }

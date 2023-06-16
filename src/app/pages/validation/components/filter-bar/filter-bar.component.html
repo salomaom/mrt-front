@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container2">
   <div class="filters">
     <div class="filters-list">
       <mrt-button
@@ -11,13 +11,17 @@
     </div>
     <div *ngIf="isFiltersOpen" class="filters-modal">
       <div class="filters">
-        <mrt-input type="text" label="Operador" />
+      <mrt-input type="text" label="Operador" />
         <mrt-input type="number" label="Itens por consulta" />
         <mrt-input type="number" label="Itens por página [Talvez remova]" />
         <mrt-select label="Concessionária" [options]="['A', 'B']" />
         <mrt-select label="Praça" [options]="['A', 'B']" [multiple]="true" />
         <mrt-select label="Sentido" [options]="['A', 'B']" />
-        <mrt-select label="Via" [options]="['A', 'B']" />
+        <mrt-select
+          label="Via"
+          [options]="lanes"
+          (selectedValue)="viaSelected($event)"
+        />
         <mrt-select label="Modo via" [options]="['A', 'B']" />
         <mrt-select label="Tipo de anomalia" [options]="['A', 'B']" />
         <mrt-select label="Categoria" [options]="['A', 'B']" />
@@ -32,11 +36,7 @@
           (click)="openFilters()"
           text="Cancelar"
         />
-        <mrt-button
-          class="filter-button"
-          (click)="openFilters()"
-          text="Aplicar"
-        />
+        <mrt-button class="filter-button" (click)="onFilter()" text="Aplicar" />
       </div>
     </div>
   </div>
@@ -51,4 +51,98 @@
     </div>
   </div>
 </div>
-<div *ngIf="isFiltersOpen" class="overlay" (click)="openFilters()"></div>
+<div *ngIf="isFiltersOpen" class="overlay" (click)="openFilters()"></div> -->
+
+<div class="accordion">
+  <div class="accordion-header">
+    <mrt-button
+      class="accordion-header-advanced-button"
+      (click)="openFilters($event)"
+      text="Filtro Avançado"
+      leftIcon="filter_alt"
+      icon="expand_more"
+    />
+    <mrt-chip [items]="['Operador', 'Praça', 'Categoria']" />
+    <div class="accordion-header-results">
+      <div class="validated">
+        <p>Validados</p>
+        <p class="validated-number">10</p>
+      </div>
+      <div class="loaded">
+        <p>Carregados</p>
+        <p class="loaded-number">15</p>
+      </div>
+    </div>
+  </div>
+  <div [@advancedFilterAnimation]="animationState">
+    <div class="accordion-content">
+      <div class="accordion-content-header">
+        <p class="accordion-content-header-title">Filtro Avançado</p>
+        <!-- <button class="accordion-content-header-clean" (click)="init()">
+          Limpar todos
+        </button> -->
+      </div>
+      <div class="accordion-content-main">
+        <div class="accordion-content-filters">
+          <div class="top-row">
+            <mrt-datetimepicker
+              label="Data/Hora de"
+              [value]="filters?.fromDateTime"
+            />
+            <mrt-datetimepicker
+              label="Data/Hora até"
+              [value]="filters?.toDateTime"
+            />
+            <mrt-select
+              label="Concessionária"
+              [options]="tollCompanies"
+              (selectedValue)="onTollCompanySelection($event)"
+              class="tollCompany"
+            />
+            <mrt-select
+              label="Praça"
+              (selectedValue)="onPlazaSelection($event)"
+              [options]="plazas"
+              [multiple]="true"
+            />
+            <mrt-select label="Tipo de anomalia" [options]="anomalyTypes" />
+          </div>
+          <div
+            [@moreFilterAnimation]="moreFilterAnimationState"
+            class="bottom-row"
+          >
+            <mrt-select label="Modo via" [options]="laneModes" />
+            <mrt-select label="Categoria" [options]="vehicleClasses" />
+            <mrt-select label="Tipo de pagamento" [options]="paymentTypes" />
+            <mrt-input type="number" label="Itens por página" />
+            <mrt-input type="number" label="Itens por consulta" />
+            <mrt-select label="Sentido" [options]="laneDirections" />
+            <mrt-select label="Via" [options]="lanes" />
+            <mrt-input type="text" label="ID Transação" />
+            <mrt-input type="text" label="Operador" />
+          </div>
+        </div>
+      </div>
+      <div class="accordion-content-footer">
+        <button
+          (click)="openMoreFilters($event)"
+          class="accordion-content-footer-more"
+        >
+          {{ moreFilterAnimationState === "closed" ? "Ver mais" : "Ver menos" }}
+        </button>
+        <div class="accordion-content-filter-buttons">
+          <mrt-button
+            class="accordion-content-filter-button"
+            (click)="openFilters($event)"
+            text="Cancelar"
+          />
+          <mrt-button
+            class="accordion-content-filter-button"
+            (click)="onFilter()"
+            text="Aplicar"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

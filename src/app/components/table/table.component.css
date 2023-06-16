@@ -1,5 +1,5 @@
 .container {
-  margin: 32px 8px 100px;
+  margin: 32px 8px;
   background-color: white;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -72,4 +72,9 @@ td {
   font-size: 24px;
   width: 24px;
   height: 24px;
+}
+
+.no-data-cell {
+  padding: 24px;
+  text-align: center;
 }

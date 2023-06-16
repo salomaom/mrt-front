@@ -1,14 +1,19 @@
 button {
   display: flex;
   justify-content: space-between;
-  background-color: #484cb8;
+  background-color: var(--primary-dark);
   color: #ffffff;
   border: none;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 4px;
   margin: 8px;
+  width: auto;
 }
 
-mat-icon {
+.right-icon {
   margin-left: 8px;
+}
+
+.left-icon {
+  margin-right: 8px;
 }

@@ -1,8 +1,8 @@
 <div class="validation-container">
-  <mrt-filter-bar />
+  <mrt-filter-bar (filterClick)="filter($event)" [filters]="filters" />
   <div class="main-container">
     <mrt-image-gallery />
     <mrt-actions />
   </div>
-  <mrt-transit-list />
+  <mrt-transit-list [data]="transactions" />
 </div>

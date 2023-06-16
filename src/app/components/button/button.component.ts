@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() icon: string | null = null;
+  @Input() leftIcon: string | null = null;
   @Input() text: string = '[SEM TEXTO]';
 }

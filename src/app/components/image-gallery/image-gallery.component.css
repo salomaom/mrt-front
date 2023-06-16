@@ -6,9 +6,16 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 img {
-  width: 70%;
-  height: auto;
+  filter: blur(15px);
+}
+
+h1 {
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  color: var(--neutral-medium);
 }

@@ -2,7 +2,13 @@
   <mrt-label>{{ label }}</mrt-label>
   <mat-form-field>
     <mat-icon matSuffix>expand_more</mat-icon>
-    <mat-select class="custom-select" [multiple]="multiple">
+    <mat-select
+      [(ngModel)]="selectedOptions"
+      class="custom-select"
+      [multiple]="multiple"
+      (valueChange)="valueSelected($event)"
+      [disabled]="!options.length"
+    >
       <!-- Remove comment to have a searchable select. It needs some implementation to work. -->
       <!-- <mat-option>
         <ngx-mat-select-search
@@ -12,8 +18,16 @@
           (keyUp)="filterOptions()"
         ></ngx-mat-select-search>
       </mat-option> -->
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{ option }}
+      <mat-option
+        *ngIf="multiple && options.length"
+        (click)="toggleSelectAll()"
+        [value]="selected"
+      >
+        Todas
+      </mat-option>
+      <mat-option *ngIf="!multiple">Nenhuma</mat-option>
+      <mat-option *ngFor="let option of options" [value]="option.value">
+        {{ option.text }}
       </mat-option>
     </mat-select>
   </mat-form-field>

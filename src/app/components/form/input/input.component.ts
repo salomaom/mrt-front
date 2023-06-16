@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class InputComponent {
   @Input() label: string = '';
   @Input() type: string = '';
+  @Input() value: string = '';
 }

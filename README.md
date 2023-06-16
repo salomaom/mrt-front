@@ -2,6 +2,14 @@
 
 [ ] Escrever tests
 
+# ENVs
+
+Na pasta src/enviroments existem dois arquivos, environment.development.ts e environment.ts, um para ser usado no ambiente de desenvolvimento e o outro em produção, respectivamente.
+
+## Novos itens
+
+1. Adicionar chave e valor desesado aos dois arquivos, cada um com o seu valor.
+
 # Observações
 
 ## Libs

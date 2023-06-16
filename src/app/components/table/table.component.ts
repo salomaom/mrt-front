@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
@@ -200,7 +200,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
-export class TableComponent {
+export class TableComponent  {
   displayedColumns: string[] = [
     'select',
     'datetime',
@@ -214,6 +214,7 @@ export class TableComponent {
   ];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
+  @Input() data: any[] = [];
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {

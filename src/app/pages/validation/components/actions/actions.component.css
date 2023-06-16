@@ -5,8 +5,21 @@
   min-width: 368px;
   max-width: 100%;
   margin: 8px;
-  padding: 38% 16px;
   color: #706f6f;
   font-weight: bold;
   text-align: center;
+  position: relative;
+}
+
+img {
+  filter: blur(10px);
+  height: auto;
+  margin: auto;
+}
+
+h1 {
+  position: absolute;
+  top: 40%;
+  left: 27%;
+  color: var(--primary-dark);
 }

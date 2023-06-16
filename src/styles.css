@@ -1,6 +1,59 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+/* VARS */
+
+:root {
+  --primary-dark: #002e40;
+  --primary-medium: #004357;
+  --primary-light: #508ca6;
+  --primary-lightest: #d4f2ff;
+
+  --secondary-darkest: #001757;
+  --secondary-dark: #0f276d;
+  --secondary-medium: #27408c;
+  --secondary-light: #929cc3;
+  --secondary-lightest: #e5e7f0;
+
+  --neutral-darkest: #1e1e1e;
+  --neutral-dark: #706f6f;
+  --neutral-medium: #c6c6c6;
+  --neutral-light: #f2f2f3;
+  --neutral-lightest: #ffffff;
+
+  --gradient-primary: linear-gradient(87.7deg, #004357 0.78%, #6ca1b9 100%);
+  --gradient-secondary: linear-gradient(
+    90.22deg,
+    #001757 2.72%,
+    #929cc3 101.75%
+  );
+
+  --feedback-success: #4db848;
+  --feedback-warning: #f5821f;
+  --feedback-danger: #e91c2d;
+
+  --shape-small: 4px;
+  --shape-medium: 8px;
+  --shape-large: 16px;
+  --shape-circular: 50%;
+
+  --line-thin: 1px;
+  --line-thick: 2px;
+
+  --space-nano: 2px;
+  --space-micro: 4px;
+  --space-xxxs: 8px;
+  --space-xxs: 12px;
+  --space-xs: 16px;
+  --space-sm: 24px;
+  --space-md: 32px;
+  --space-lg: 40px;
+  --space-xl: 56px;
+  --space-xxl: 64px;
+  --space-xxxl: 80px;
+  --space-huge: 120px;
+}
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/

@@ -1,3 +1,4 @@
 <button>
-  {{ text }}<mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  <mat-icon *ngIf="leftIcon" class="left-icon">{{ leftIcon }}</mat-icon
+  >{{ text }}<mat-icon *ngIf="icon" class="right-icon">{{ icon }}</mat-icon>
 </button>
