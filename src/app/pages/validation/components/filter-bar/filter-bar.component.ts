@@ -5,6 +5,7 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
+  OnInit,
 } from '@angular/core';
 import {
   animate,
@@ -13,9 +14,13 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+
+import { HotkeyInput } from 'src/app/components/hotkeys/hotkeys.component';
+
 import Filter from '../../models/filter';
 import { SelectOption } from 'src/app/components/form/select/select.component';
 import TollCompany from '../../models/toll-company';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'mrt-filter-bar',
@@ -34,8 +39,8 @@ import TollCompany from '../../models/toll-company';
     ]),
   ],
 })
-export class FilterBarComponent implements OnChanges {
-  animationState: 'open' | 'closed' = 'open';
+export class FilterBarComponent implements OnChanges, OnInit {
+  animationState: 'open' | 'closed' = 'closed';
   moreFilterAnimationState: 'open' | 'closed' = 'closed';
   selectedValue = '';
   tollCompanies: SelectOption[] = [];
@@ -47,17 +52,61 @@ export class FilterBarComponent implements OnChanges {
   laneDirections: SelectOption[] = [];
   lanes: SelectOption[] = [];
   selectedTollCompany: TollCompany | undefined;
+  hotkeys: HotkeyInput[] = [];
+  form!: FormGroup;
 
-  @Input() filters: Filter | null = null;
+  @Input() filters?: Filter;
 
   @Output() filterClick = new EventEmitter<string>();
 
+  constructor(private formBuilder: FormBuilder) {}
+
   ngOnChanges(changes: SimpleChanges) {
-    this.init();
+    this.initFilters();
+    if (this.filters) {
+      this.form.patchValue({
+        fromDateTime: this.filters.fromDateTime,
+        toDateTime: this.filters.toDateTime,
+      });
+    }
   }
 
-  init() {
-    console.log('INIT');
+  ngOnInit() {
+    this.createForm();
+    this.initHotkeys();
+  }
+
+  createForm(): void {
+    this.form = this.formBuilder.group({
+      fromDateTime: [null],
+      toDateTime: [null],
+      tollCompanies: [[]],
+      plazas: [[]],
+      anomalyTypes: [[]],
+      laneModes: [[]],
+      vehicleClasses: [[]],
+      paymentTypes: [[]],
+      laneDirections: [[]],
+      lanes: [[]],
+      transactionIds: [[]],
+      operatorId: [''],
+    });
+  }
+
+  initHotkeys() {
+    this.hotkeys.push(
+      {
+        key: 'meta + f',
+        command: (e) => this.openFilters(),
+      },
+      {
+        key: 'meta + g',
+        command: (e) => this.openMoreFilters(),
+      }
+    );
+  }
+
+  initFilters() {
     if (this.filters) {
       this.filters.fromDateTime = new Date(this.filters.fromDateTime);
       this.filters.toDateTime = new Date(this.filters.toDateTime);

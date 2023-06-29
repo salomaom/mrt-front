@@ -1,13 +1,43 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Optional, Self, forwardRef } from '@angular/core';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 @Component({
   selector: 'mrt-datetimepicker',
   templateUrl: './datetimepicker.component.html',
   styleUrls: ['./datetimepicker.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DatetimepickerComponent),
+      multi: true,
+    },
+  ],
 })
-export class DatetimepickerComponent {
+export class DatetimepickerComponent implements ControlValueAccessor {
+  @Input() disabled: boolean = false;
+  @Input() placeholder: string = '';
   @Input() label: string = '';
-  @Input() value: Date | null | undefined = new Date();
+  @Input() value?: Date;
+
+  writeValue(value: any): void {
+    this.value = value;
+    this.onChange(value);
+  }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  public onChange(value: Date) {}
+  private onTouched() {}
 
   formatDate(date: Date | null | undefined) {
     if (!date) return;

@@ -12,19 +12,20 @@ export class AppComponent implements OnInit {
   title = 'MRT';
   url = environment.reatTimeBaseURL;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService) {}
+
+  async ngOnInit(): Promise<void> {
     window.addEventListener(
       'message',
       (event) => {
-        const login = JSON.parse(event.data.message);
+        if (event.data.message) {
+          const login = JSON.parse(event.data.message);
+          this.authService
+            .login({ operatorId: '123', password: '123' })
+            .subscribe((res) => null);
+        }
       },
       false
     );
-  }
-
-  async ngOnInit(): Promise<void> {
-    this.authService
-      .login({ operatorId: '123', password: '123' })
-      .subscribe((res) => console.log(res));
   }
 }

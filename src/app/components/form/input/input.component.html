@@ -1,4 +1,8 @@
 <div class="container">
   <mrt-label>{{ label }}</mrt-label>
-  <input [type]="type" [value]="value" />
+  <input
+    [type]="type"
+    [(ngModel)]="value"
+    (input)="onChange($any($event.target).value)"
+  />
 </div>

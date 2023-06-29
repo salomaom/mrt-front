@@ -11,7 +11,7 @@ import Filter from './models/filter';
 })
 export class ValidationComponent implements OnInit {
   public transactions: any[] = [];
-  public filters: Filter | null = null;
+  public filters?: Filter;
 
   constructor(
     private service: ValidationService,
@@ -19,14 +19,11 @@ export class ValidationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.filter('01');
     this.getFilters();
   }
 
   filter(via: string) {
-    this.service
-      .filter({ plaza: via })
-      .subscribe((transactions) => (this.transactions = transactions));
+    throw new Error('Not Implemented.');
   }
 
   getFilters() {

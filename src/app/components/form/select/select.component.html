@@ -3,11 +3,12 @@
   <mat-form-field>
     <mat-icon matSuffix>expand_more</mat-icon>
     <mat-select
-      [(ngModel)]="selectedOptions"
+      [ngModel]="selectedOptions"
+      (ngModelChange)="onChange($event)"
       class="custom-select"
       [multiple]="multiple"
       (valueChange)="valueSelected($event)"
-      [disabled]="!options.length"
+      [disabled]="!options.length || disabled"
     >
       <!-- Remove comment to have a searchable select. It needs some implementation to work. -->
       <!-- <mat-option>

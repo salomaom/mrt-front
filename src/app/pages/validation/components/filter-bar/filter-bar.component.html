@@ -1,58 +1,4 @@
-<!-- <div class="container2">
-  <div class="filters">
-    <div class="filters-list">
-      <mrt-button
-        class="filters-advanced-button"
-        (click)="openFilters()"
-        text="Filtro Avançado"
-        icon="expand_more"
-      />
-      <mrt-chip [items]="['Operador', 'Praça', 'Categoria']" />
-    </div>
-    <div *ngIf="isFiltersOpen" class="filters-modal">
-      <div class="filters">
-      <mrt-input type="text" label="Operador" />
-        <mrt-input type="number" label="Itens por consulta" />
-        <mrt-input type="number" label="Itens por página [Talvez remova]" />
-        <mrt-select label="Concessionária" [options]="['A', 'B']" />
-        <mrt-select label="Praça" [options]="['A', 'B']" [multiple]="true" />
-        <mrt-select label="Sentido" [options]="['A', 'B']" />
-        <mrt-select
-          label="Via"
-          [options]="lanes"
-          (selectedValue)="viaSelected($event)"
-        />
-        <mrt-select label="Modo via" [options]="['A', 'B']" />
-        <mrt-select label="Tipo de anomalia" [options]="['A', 'B']" />
-        <mrt-select label="Categoria" [options]="['A', 'B']" />
-        <mrt-select label="Emissor" [options]="['A', 'B']" />
-        <mrt-datetimepicker label="Data/Hora de" />
-        <mrt-datetimepicker label="Data/Hora até" />
-        <mrt-select label="Tipo de pagamento" [options]="['A', 'B']" />
-      </div>
-      <div class="filter-buttons">
-        <mrt-button
-          class="filter-button"
-          (click)="openFilters()"
-          text="Cancelar"
-        />
-        <mrt-button class="filter-button" (click)="onFilter()" text="Aplicar" />
-      </div>
-    </div>
-  </div>
-  <div class="results">
-    <div class="validated">
-      <p>Validados</p>
-      <p class="validated-number">10</p>
-    </div>
-    <div class="loaded">
-      <p>Carregados</p>
-      <p class="loaded-number">15</p>
-    </div>
-  </div>
-</div>
-<div *ngIf="isFiltersOpen" class="overlay" (click)="openFilters()"></div> -->
-
+<mrt-hotkeys [hotkeys]="hotkeys"></mrt-hotkeys>
 <div class="accordion">
   <div class="accordion-header">
     <mrt-button
@@ -83,45 +29,74 @@
         </button> -->
       </div>
       <div class="accordion-content-main">
-        <div class="accordion-content-filters">
+        <form [formGroup]="form" class="accordion-content-filters">
+          <!-- {{ this.form.value | json }} -->
           <div class="top-row">
             <mrt-datetimepicker
               label="Data/Hora de"
-              [value]="filters?.fromDateTime"
+              formControlName="fromDateTime"
             />
             <mrt-datetimepicker
               label="Data/Hora até"
-              [value]="filters?.toDateTime"
+              formControlName="toDateTime"
             />
             <mrt-select
               label="Concessionária"
               [options]="tollCompanies"
               (selectedValue)="onTollCompanySelection($event)"
               class="tollCompany"
+              formControlName="tollCompanies"
             />
             <mrt-select
               label="Praça"
               (selectedValue)="onPlazaSelection($event)"
               [options]="plazas"
               [multiple]="true"
+              formControlName="plazas"
             />
-            <mrt-select label="Tipo de anomalia" [options]="anomalyTypes" />
+            <mrt-select
+              label="Tipo de anomalia"
+              [options]="anomalyTypes"
+              formControlName="anomalyTypes"
+            />
           </div>
           <div
             [@moreFilterAnimation]="moreFilterAnimationState"
             class="bottom-row"
           >
-            <mrt-select label="Modo via" [options]="laneModes" />
-            <mrt-select label="Categoria" [options]="vehicleClasses" />
-            <mrt-select label="Tipo de pagamento" [options]="paymentTypes" />
-            <mrt-input type="number" label="Itens por página" />
-            <mrt-input type="number" label="Itens por consulta" />
-            <mrt-select label="Sentido" [options]="laneDirections" />
-            <mrt-select label="Via" [options]="lanes" />
-            <mrt-input type="text" label="ID Transação" />
-            <mrt-input type="text" label="Operador" />
+            <mrt-select
+              label="Modo via"
+              [options]="laneModes"
+              formControlName="laneModes"
+            />
+            <mrt-select
+              label="Categoria"
+              [options]="vehicleClasses"
+              formControlName="vehicleClasses"
+            />
+            <mrt-select
+              label="Tipo de pagamento"
+              [options]="paymentTypes"
+              formControlName="paymentTypes"
+            />
+            <mrt-select
+              label="Sentido"
+              [options]="laneDirections"
+              formControlName="laneDirections"
+            />
+            <mrt-select label="Via" [options]="lanes" formControlName="lanes" />
+            <mrt-input
+              type="text"
+              label="ID Transação"
+              formControlName="transactionIds"
+            />
+            <mrt-input
+              type="text"
+              label="Operador"
+              formControlName="operatorId"
+            />
           </div>
-        </div>
+        </form>
       </div>
       <div class="accordion-content-footer">
         <button

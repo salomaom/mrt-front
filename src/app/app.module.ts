@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
+import { KeyboardShortcutsModule } from 'ng-keyboard-shortcuts';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -32,6 +34,7 @@ import { InputComponent } from './components/form/input/input.component';
 import { CheckboxComponent } from './components/form/checkbox/checkbox.component';
 import { ChipComponent } from './components/chip/chip.component';
 import { TableComponent } from './components/table/table.component';
+import { HotkeysComponent } from './components/hotkeys/hotkeys.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,7 @@ import { TableComponent } from './components/table/table.component';
     CheckboxComponent,
     ChipComponent,
     TableComponent,
+    HotkeysComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +68,7 @@ import { TableComponent } from './components/table/table.component';
     MatCheckboxModule,
     MatChipsModule,
     MatTableModule,
+    KeyboardShortcutsModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

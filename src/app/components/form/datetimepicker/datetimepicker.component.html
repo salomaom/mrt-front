@@ -9,6 +9,8 @@
       type="datetime-local"
       placeholder="Data/Hora inicio"
       [value]="formatDate(value)"
+      [ngModel]="value"
+      (ngModelChange)="onChange($event)"
     />
   </div>
 </div>
